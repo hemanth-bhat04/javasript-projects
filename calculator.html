@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="calculator.js"></script>
+</head>
+<body>
+    <div class="Calculator">
+        <div class="calculator_display">
+            <button class="key_operator" button-action="add">+</button>
+            <button class="key_operator" button-action="sub">-</button>
+            <button class="key_operator" button-action="mul">*</button>
+            <button class="key_operator" button-action="div">/</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>0</button>
+            <button button-action="decimal">.</button>
+            <button button-action="clear">AC</button>
+            <button class="key_equal" button-action="equal">=</button>
+        </div>
+        <div class="calculator_keys">...</div>
+
+    </div>
+    <style>
+        .calculator_keys{
+            display: grid;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,31 @@
+*{
+    box-sizing: border-box ;
+  }
+  .myL{
+      margin: 0%;
+      padding: 0%;
+  }
+  ul li{
+     cursor: pointer;
+     position: relative;
+     padding: 5px 5px 5px 5px;
+     background-color: azure;
+     font-size: medium; 
+     transition: 0.5s; 
+     color: black;
+     display:flex;
+        }
+ ul:nth-child(even){
+    background-color: rgb(135, 174, 174);
+        }
+ li:hover{
+ background-color:green;
+        }
+.add{
+height: 20px;
+ width:40px;
+background-color:aqua;
+font: 400;
+box-sizing: border-box;
+color: black;
+}

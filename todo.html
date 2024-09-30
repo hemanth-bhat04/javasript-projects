@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  min-width: 250px;
+}
+* {
+  box-sizing: border-box;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 10px 10px;
+  list-style-type: none;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+}
+ul li:nth-child(3n) {
+  background: #a0becd;
+}
+ul li:hover {
+  background: #d0e1f2;
+}
+ul li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration:underline;
+}
+
+ul li.checked::before {
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 5px 5px 0;
+  top: 10px;
+  left: 16px;
+  height: 15px;
+  width: 7px;
+}
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 10px 15px ;
+}
+
+.close:hover {
+  background-color: #36bbf4;
+  color: rgb(0, 0, 0);
+}
+.header {
+  background-color: #3662f4;
+  padding: 30px 40px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+input {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 50%;
+  padding: 10px;
+  float: left;
+  font-size: 25px;
+}
+.addElement {
+  padding: 10px;
+  width: 15%;
+  background:green;
+  color: #ffffff;
+  float: left;
+  text-align: center;
+  font-size: 25px;
+  cursor: pointer;
+  transition: 0.35s;
+}
+
+.addElement:hover {
+  background-color: #bbb;
+}
+</style>
+</head>
+<body>
+
+<div id="myDIV" class="header">
+  <h1 style="margin:8px; text-shadow: rgb(151, 160, 95);">Technologies</h1>
+  <input type="text" id="userInput" placeholder="Value">
+  <span onclick="newElement()" class="addElement">Add</span>
+</div>
+
+<ul id="unOl">
+  <li class="checked">Core Java</li>
+  <li>C</li>
+  <li>CSS</li>
+  <li>ECMA Script</li>
+  <li>Python</li>
+  <li>Data Structures</li>
+  <li>Machine Learning</li>
+  <li>ASP.Net</li>
+</ul>
+
+<script>
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("userInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("Add a technology you know!");
+  } else {
+    document.getElementById("unOl").appendChild(li);
+  }
+  document.getElementById("userInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+</script>
+
+</body>
+</html>
